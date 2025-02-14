@@ -32,12 +32,12 @@ const SearchRecipients = () => {
     }
 
     setEmailError('')
-    setSuccessMessage(`✅ Shared successfully with ${email}`)
+    setSuccessMessage(`Shared successfully with ${email}`)
 
     if (emailRef.current) {
     }
 
-    setTimeout(() => setSuccessMessage(''), 3000)
+    setTimeout(() => setSuccessMessage(''), 1000000)
   }
 
   return (
@@ -54,10 +54,10 @@ const SearchRecipients = () => {
             error={!!emailError}
           />
           {emailError && (
-            <FormHelperText className="text-red-600">{emailError}</FormHelperText>
+            <FormHelperText className="!text-red-600 !m-0">{emailError}</FormHelperText>
           )}
           {successMessage && (
-            <FormHelperText className="text-green-600">{successMessage}</FormHelperText>
+            <FormHelperText className="!text-green-600 !m-0">{successMessage}</FormHelperText>
           )}
         </FormControl>
 

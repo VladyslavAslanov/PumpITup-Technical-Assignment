@@ -1,4 +1,5 @@
-import { IMocks, Roles } from './interfaces/IMocks.ts'
+import { IMocks } from './interfaces/IMocks.ts'
+import { Roles } from './interfaces/IRole.ts'
 
 export const mocks: IMocks = {
   recipients: [

@@ -2,8 +2,8 @@ import { Box } from '@mui/material'
 import PrivacySettings from './components/PrivacySettings.tsx'
 import Footer from './components/Footer.tsx'
 import Recipients from './components/Recipients.tsx'
-import ShareDocumentLink from './atoms/ShareDocumentLink.tsx'
-import SearchRecipients from './atoms/SearchRecipients.tsx'
+import ShareDocumentLink from './components/ShareDocumentLink.tsx'
+import SearchRecipients from './components/SearchRecipients.tsx'
 import Header from './components/Header.tsx'
 
 const App = () => {

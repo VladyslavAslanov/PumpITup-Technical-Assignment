@@ -1,4 +1,4 @@
-import { Roles } from './IMocks.ts'
+import { Roles } from './IRole.ts'
 
 export interface IRecipient {
   avatar: string;
