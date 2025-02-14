@@ -4,14 +4,10 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import InsertLinkOutlinedIcon from '@mui/icons-material/InsertLinkOutlined'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import PrivacyOption from '../atoms/PrivacyOption.tsx'
+import { IPrivacyOption } from '../interfaces/IPrivacyOption.ts'
 
-interface PrivacyOptionType {
-  icon: React.ElementType;
-  text: string;
-  action: React.ReactNode;
-}
 
-const privacyOptions: PrivacyOptionType[] = [
+const privacyOptions: IPrivacyOption[] = [
   {
     icon: AccountCircleOutlinedIcon,
     text: 'Anyone at Project can view and edit',

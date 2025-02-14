@@ -82,7 +82,6 @@ const initialRecipients: IRecipient[] = [
   },
 ]
 
-// Provider Component (Only Exported Here)
 export const RecipientsProvider = ({ children }: { children: ReactNode }) => {
   const [recipients, setRecipients] = useState<IRecipient[]>(initialRecipients)
 
