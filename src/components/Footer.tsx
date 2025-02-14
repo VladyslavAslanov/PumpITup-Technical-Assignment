@@ -2,18 +2,24 @@ import { Box, Button } from '@mui/material'
 import InsertLinkOutlinedIcon from '@mui/icons-material/InsertLinkOutlined'
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined'
 
+const actionButtons = [
+  { icon: <CodeOutlinedIcon />, text: 'Get Embed Code' },
+  { icon: <InsertLinkOutlinedIcon />, text: 'Copy Links' },
+]
+
 const Footer = () => {
   return (
-    <Box className="flex justify-between items-center">
-      <Button variant="contained">Done</Button>
-      <Box className="flex gap-8">
-        <Button startIcon={<CodeOutlinedIcon />}>
-          Get embed Code
-        </Button>
+    <Box className="flex justify-between items-center p-4 bg-white rounded-lg shadow-md">
+      <Button variant="contained" className="px-6">
+        Done
+      </Button>
 
-        <Button startIcon={<InsertLinkOutlinedIcon />}>
-          Copy Links
-        </Button>
+      <Box className="flex gap-4">
+        {actionButtons.map((button, index) => (
+          <Button key={index} startIcon={button.icon} variant="outlined">
+            {button.text}
+          </Button>
+        ))}
       </Box>
     </Box>
   )
