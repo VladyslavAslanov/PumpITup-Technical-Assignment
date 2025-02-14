@@ -1,14 +1,17 @@
 import { Box, TextField, Typography } from '@mui/material'
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
+import { useState } from 'react'
 
 const ShareDocumentLink = () => {
+  const [value] = useState('https://www.setproduct.com/resources/agency/thisisthelin')
   return (
     <Box>
-      <Typography className="text-sm text-gray-600">Document Link</Typography>
+      <Typography>Document Link</Typography>
       <TextField
         fullWidth
         variant="outlined"
-        value="https://www.setproduct.com/resources/agency/thisisthelin..."
+        value={value}
+        className="rounded-xl p-1"
         slotProps={{
           input: {
             endAdornment: <ContentCopyOutlinedIcon className="cursor-pointer text-gray-500" />,
