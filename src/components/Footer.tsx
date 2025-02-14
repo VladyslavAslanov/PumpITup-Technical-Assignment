@@ -1,20 +1,18 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import InsertLinkOutlinedIcon from '@mui/icons-material/InsertLinkOutlined'
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined'
 
 const Footer = () => {
   return (
     <Box className="flex justify-between items-center">
-      <Button>Done</Button>
+      <Button variant="contained">Done</Button>
       <Box className="flex gap-8">
-        <Button className="flex gap-3">
-          <CodeOutlinedIcon />
-          <Typography>Get embed Code</Typography>
+        <Button startIcon={<CodeOutlinedIcon />}>
+          Get embed Code
         </Button>
 
-        <Button className="flex gap-3">
-          <InsertLinkOutlinedIcon />
-          <Typography>Copy Links</Typography>
+        <Button startIcon={<InsertLinkOutlinedIcon />}>
+          Copy Links
         </Button>
       </Box>
     </Box>
