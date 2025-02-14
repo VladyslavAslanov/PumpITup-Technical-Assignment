@@ -8,7 +8,7 @@ import Header from './components/Header.tsx'
 
 const App = () => {
   return (
-    <Box className="flex flex-col gap-6 rounded-lg shadow-lg w-xl bg-white p-8">
+    <Box className="flex flex-col gap-6 rounded-lg shadow-lg w-xl bg-white p-8 my-8">
       <Header />
       <ShareDocumentLink />
       <SearchRecipients />

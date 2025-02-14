@@ -9,19 +9,13 @@ const Recipients = () => {
 
   return (
     <Box className="flex flex-col gap-4">
-      <Typography className="font-semibold text-gray-700">
-        Recipients
-      </Typography>
+      <Typography className="font-semibold text-gray-700">Recipients</Typography>
 
-      <Box className="flex flex-col gap-4">
+      <Box className="flex flex-col gap-4 overflow-y-auto" sx={{ maxHeight: '320px', scrollbarWidth: 'thin' }}>
         {recipients.length > 0 ? (
-          recipients.map((recipient) => (
-            <Recipient {...recipient} key={recipient.id} />
-          ))
+          recipients.map((recipient) => <Recipient {...recipient} key={recipient.id} />)
         ) : (
-          <Typography className="text-center text-gray-500 italic">
-            No recipients found
-          </Typography>
+          <Typography className="text-center text-gray-500 italic">No recipients found</Typography>
         )}
       </Box>
     </Box>
