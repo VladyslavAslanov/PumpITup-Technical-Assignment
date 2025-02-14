@@ -55,7 +55,8 @@ const SearchRecipients = () => {
             error={!!emailError}
           />
           {emailError && <FormHelperText className="!text-red-600 !m-0 absolute top-15">{emailError}</FormHelperText>}
-          {successMessage && <FormHelperText className="!text-green-600 !m-0 absolute top-15">{successMessage}</FormHelperText>}
+          {successMessage &&
+            <FormHelperText className="!text-green-600 !m-0 absolute top-15">{successMessage}</FormHelperText>}
         </FormControl>
 
         <TextField
