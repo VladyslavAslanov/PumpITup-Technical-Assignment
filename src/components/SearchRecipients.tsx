@@ -1,5 +1,13 @@
 import { useRef, useState } from 'react'
-import { Box, Button, MenuItem, TextField, Typography, FormControl, FormHelperText } from '@mui/material'
+import {
+  Box,
+  Button,
+  MenuItem,
+  TextField,
+  Typography,
+  FormControl,
+  FormHelperText,
+} from '@mui/material'
 
 enum PermissionOptions {
   CanView = 'Can View',
@@ -42,10 +50,12 @@ const SearchRecipients = () => {
   }
 
   return (
-    <Box className="flex flex-col gap-2">
-      <Typography className="text-sm text-gray-600">Search Recipients</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Typography variant="body2" sx={{ color: 'gray.600' }}>
+        Search Recipients
+      </Typography>
 
-      <Box className="flex gap-2 items-start">
+      <Box sx={{ display: 'flex', gap: 2, alignItems: 'start' }}>
         <FormControl fullWidth>
           <TextField
             fullWidth
@@ -54,9 +64,11 @@ const SearchRecipients = () => {
             inputRef={emailRef}
             error={!!emailError}
           />
-          {emailError && <FormHelperText className="!text-red-600 !m-0 absolute top-15">{emailError}</FormHelperText>}
-          {successMessage &&
-            <FormHelperText className="!text-green-600 !m-0 absolute top-15">{successMessage}</FormHelperText>}
+          {(emailError || successMessage) && (
+            <FormHelperText sx={{ color: emailError ? 'red' : 'green', mt: 1 }}>
+              {emailError || successMessage}
+            </FormHelperText>
+          )}
         </FormControl>
 
         <TextField
@@ -64,7 +76,7 @@ const SearchRecipients = () => {
           variant="outlined"
           value={permission}
           onChange={(e) => setPermission(e.target.value as PermissionOptions)}
-          className="w-54"
+          sx={{ width: 140 }}
         >
           {Object.values(PermissionOptions).map((option) => (
             <MenuItem key={option} value={option}>
@@ -73,7 +85,7 @@ const SearchRecipients = () => {
           ))}
         </TextField>
 
-        <Button variant="contained" color="primary" onClick={handleShare} className="h-full" sx={{ height: '100%' }}>
+        <Button variant="contained" color="primary" onClick={handleShare} sx={{ height: '100%' }}>
           Share
         </Button>
       </Box>

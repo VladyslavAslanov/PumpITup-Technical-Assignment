@@ -1,21 +1,41 @@
-import { Box, TextField, Typography, InputAdornment, IconButton } from '@mui/material'
+import { useState, useEffect } from 'react'
+import {
+  Box,
+  TextField,
+  Typography,
+  InputAdornment,
+  IconButton,
+} from '@mui/material'
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
-import { useState } from 'react'
 
 const documentLink = 'https://www.setproduct.com/resources/agency/thisisthelin'
 
 const ShareDocumentLink = () => {
   const [copied, setCopied] = useState(false)
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(documentLink)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 5000)
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+    if (copied) {
+      timer = setTimeout(() => setCopied(false), 3000)
+    }
+    return () => clearTimeout(timer)
+  }, [copied])
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(documentLink)
+      setCopied(true)
+    } catch (error) {
+      console.error('Failed to copy text:', error)
+    }
   }
 
   return (
-    <Box className="flex flex-col">
-      <Typography className="text-sm text-gray-600 font-medium">Document Link</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Typography variant="body2" sx={{ color: 'gray.600', fontWeight: 500 }}>
+        Document Link
+      </Typography>
+
       <TextField
         fullWidth
         variant="outlined"
@@ -33,7 +53,11 @@ const ShareDocumentLink = () => {
         }}
       />
 
-      {copied && <Typography className="text-green-600 text-sm">✅ Link copied!</Typography>}
+      {copied && (
+        <Typography sx={{ color: 'green', fontSize: '0.875rem' }}>
+          Link copied!
+        </Typography>
+      )}
     </Box>
   )
 }

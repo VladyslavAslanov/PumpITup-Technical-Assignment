@@ -1,10 +1,17 @@
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import InsertLinkOutlinedIcon from '@mui/icons-material/InsertLinkOutlined'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import PrivacyOption from '../atoms/PrivacyOption.tsx'
 
-const privacyOptions = [
+interface PrivacyOptionType {
+  icon: React.ElementType;
+  text: string;
+  action: React.ReactNode;
+}
+
+const privacyOptions: PrivacyOptionType[] = [
   {
     icon: AccountCircleOutlinedIcon,
     text: 'Anyone at Project can view and edit',
@@ -18,14 +25,14 @@ const privacyOptions = [
   {
     icon: InsertLinkOutlinedIcon,
     text: 'Anyone with the link can edit',
-    action: <Typography className="text-blue-500 cursor-pointer">Set Password</Typography>,
+    action: <Typography sx={{ color: 'text-blue-500', cursor: 'pointer' }}>Set Password</Typography>,
   },
 ]
 
-const PrivacySettings = () => {
+const PrivacySettings: React.FC = React.memo(() => {
   return (
-    <Box className="flex flex-col gap-4">
-      <Typography variant="h6" className="font-semibold text-gray-700">
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Typography variant="h6" sx={{ fontWeight: 600, color: 'gray.700' }}>
         Privacy Settings
       </Typography>
 
@@ -34,6 +41,6 @@ const PrivacySettings = () => {
       ))}
     </Box>
   )
-}
+})
 
 export default PrivacySettings

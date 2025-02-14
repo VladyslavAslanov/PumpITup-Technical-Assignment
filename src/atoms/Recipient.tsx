@@ -1,43 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Avatar, Box, Typography, MenuItem, Select, SelectChangeEvent } from '@mui/material'
 import { IRecipient } from '../interfaces/IRecipient.ts'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import { Roles } from '../interfaces/IRole.ts'
 import { useRecipients } from '../hooks/useRecipients.ts'
 
-let hasAdmin = false
-
 const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
-  const { updateRole } = useRecipients()
+  const { recipients, updateRole } = useRecipients()
   const [selectedRole, setSelectedRole] = useState<Roles>(role as Roles)
 
+  const adminExists = useMemo(
+    () => recipients.some((recipient) => recipient.role === Roles.Admin),
+    [recipients],
+  )
+
   useEffect(() => {
-    if (selectedRole === Roles.Admin) {
-      hasAdmin = true
+    if (selectedRole === Roles.Admin && !adminExists) {
+      updateRole(id ?? '', selectedRole)
     }
-    return () => {
-      if (selectedRole === Roles.Admin) {
-        hasAdmin = false
-      }
-    }
-  }, [selectedRole])
+  }, [selectedRole, adminExists, id, updateRole])
 
   const handleRoleChange = (event: SelectChangeEvent) => {
     const newRole = event.target.value as Roles
 
-    if (newRole === Roles.Admin && hasAdmin) {
+    if (newRole === Roles.Admin && adminExists) {
       alert('Only one admin is allowed.')
       return
     }
 
-    if (selectedRole === Roles.Admin) {
-      hasAdmin = false
-    }
-
     setSelectedRole(newRole)
-    if (id) {
-      updateRole(id, newRole)
-    }
+    updateRole(id ?? '', newRole)
   }
 
   return (
@@ -58,9 +50,9 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
         className="w-36"
         IconComponent={KeyboardArrowDownOutlinedIcon}
       >
-        {Object.values(Roles).map((role) => (
-          <MenuItem key={role} value={role} disabled={role === Roles.Admin && hasAdmin}>
-            {role}
+        {Object.values(Roles).map((roleOption) => (
+          <MenuItem key={roleOption} value={roleOption} disabled={roleOption === Roles.Admin && adminExists}>
+            {roleOption}
           </MenuItem>
         ))}
       </Select>

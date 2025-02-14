@@ -1,13 +1,14 @@
+import React from 'react'
 import { Typography, Box } from '@mui/material'
 
-const Header = () => {
+const Header: React.FC = React.memo(() => {
   return (
-    <Box>
-      <Typography variant="h5" component="h1" className="font-semibold text-gray-800">
+    <Box sx={{ textAlign: 'center', mb: 2 }}>
+      <Typography variant="h5" component="h1" sx={{ fontWeight: 600, color: 'gray.800' }}>
         Share Project
       </Typography>
     </Box>
   )
-}
+})
 
 export default Header

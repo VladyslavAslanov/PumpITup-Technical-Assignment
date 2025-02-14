@@ -4,7 +4,7 @@ import { RecipientsProvider } from './context/RecipientsContext.tsx'
 
 const lazyLoadWithDelay = <T extends ComponentType<unknown>>(
   importFunc: () => Promise<{ default: T }>,
-  delay: number = 1000,
+  delay: number = 0,
 ) => {
   return lazy(() =>
     new Promise<{ default: T }>((resolve) =>
