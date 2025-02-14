@@ -7,8 +7,8 @@ import { Roles } from '../interfaces/IRole.ts'
 
 let hasOwner = false
 
-const Recipient: React.FC<IRecipient> = ({ name, email, avatar }) => {
-  const [selectedRole, setSelectedRole] = useState<Roles>(Roles.Viewer)
+const Recipient: React.FC<IRecipient> = ({ name, email, avatar, role }) => {
+  const [selectedRole, setSelectedRole] = useState<Roles>(role)
 
   useEffect(() => {
     if (selectedRole === Roles.Admin) {
