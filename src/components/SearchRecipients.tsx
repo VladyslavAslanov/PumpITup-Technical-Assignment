@@ -35,9 +35,10 @@ const SearchRecipients = () => {
     setSuccessMessage(`Shared successfully with ${email}`)
 
     if (emailRef.current) {
+      emailRef.current.value = ''
     }
 
-    setTimeout(() => setSuccessMessage(''), 1000000)
+    setTimeout(() => setSuccessMessage(''), 3000)
   }
 
   return (
@@ -53,12 +54,8 @@ const SearchRecipients = () => {
             inputRef={emailRef}
             error={!!emailError}
           />
-          {emailError && (
-            <FormHelperText className="!text-red-600 !m-0">{emailError}</FormHelperText>
-          )}
-          {successMessage && (
-            <FormHelperText className="!text-green-600 !m-0">{successMessage}</FormHelperText>
-          )}
+          {emailError && <FormHelperText className="!text-red-600 !m-0 absolute top-15">{emailError}</FormHelperText>}
+          {successMessage && <FormHelperText className="!text-green-600 !m-0 absolute top-15">{successMessage}</FormHelperText>}
         </FormControl>
 
         <TextField
@@ -75,7 +72,7 @@ const SearchRecipients = () => {
           ))}
         </TextField>
 
-        <Button variant="contained" color="primary" onClick={handleShare}>
+        <Button variant="contained" color="primary" onClick={handleShare} className="h-full" sx={{ height: '100%' }}>
           Share
         </Button>
       </Box>
