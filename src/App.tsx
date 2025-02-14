@@ -2,13 +2,16 @@ import { Box, CircularProgress } from '@mui/material'
 import { Suspense, lazy, ComponentType } from 'react'
 import { RecipientsProvider } from './context/RecipientsContext.tsx'
 
-const lazyLoadWithDelay = <T extends ComponentType<unknown>>(
+const lazyLoadWithDelay = <T extends ComponentType<ComponentType>>(
   importFunc: () => Promise<{ default: T }>,
   delay: number = 0,
 ) => {
   return lazy(() =>
     new Promise<{ default: T }>((resolve) =>
-      setTimeout(() => importFunc().then(resolve), delay),
+      setTimeout(async () => {
+        const module = await importFunc()
+        resolve({ default: module.default })
+      }, delay),
     ),
   )
 }
