@@ -3,7 +3,7 @@ import PrivacySettings from './components/PrivacySettings.tsx'
 import Footer from './components/Footer.tsx'
 import Recipients from './components/Recipients.tsx'
 import ShareDocumentLink from './atoms/ShareDocumentLink.tsx'
-import SearchRecipients from './atoms/Search Recipients.tsx'
+import SearchRecipients from './atoms/SearchRecipients.tsx'
 
 const App = () => {
   return (
