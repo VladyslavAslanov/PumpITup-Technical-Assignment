@@ -16,17 +16,16 @@ const Recipients = () => {
       <Typography>Recipients</Typography>
       <Box className="flex flex-col gap-4">
         {recipients.length > 0 ?
-          recipients.map((recipient, index) => (
+          recipients.map((recipient) => (
             <Recipient
               avatar={recipient.avatar}
               name={recipient.name}
               role={recipient.role}
               email={recipient.email}
-              key={index}
+              key={recipient.id}
             />
-
           ))
-          : <Typography>No recipients found</Typography>}
+          : <Typography className="text-center">No recipients found</Typography>}
       </Box>
     </Box>
   )

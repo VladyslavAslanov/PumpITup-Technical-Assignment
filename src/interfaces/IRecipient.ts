@@ -5,4 +5,5 @@ export interface IRecipient {
   name: string;
   email?: string;
   role: Roles;
+  id?: string;
 }
