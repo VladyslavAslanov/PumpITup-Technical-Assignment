@@ -12,7 +12,7 @@ const Recipients = () => {
   }, [])
 
   return (
-    <Box>
+    <Box className="flex flex-col gap-4">
       <Typography>Recipients</Typography>
       <Box className="flex flex-col gap-4">
         {recipients.length > 0 ?

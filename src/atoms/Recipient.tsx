@@ -14,7 +14,7 @@ const Recipient: React.FC<IRecipient> = ({ name, email, avatar, role, }) => {
         </Box>
       </Box>
 
-      <Button endIcon={<KeyboardArrowDownOutlinedIcon />}>{role}</Button>
+      <Button endIcon={<KeyboardArrowDownOutlinedIcon />} variant="outlined">{role}</Button>
     </Box>
   )
 }
