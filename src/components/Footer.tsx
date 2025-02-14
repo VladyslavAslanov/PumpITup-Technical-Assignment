@@ -9,7 +9,7 @@ const actionButtons = [
 
 const Footer = () => {
   return (
-    <Box className="flex justify-between items-center p-4 bg-white rounded-lg shadow-md">
+    <Box className="flex justify-between items-centers">
       <Button variant="contained" className="px-6">
         Done
       </Button>
