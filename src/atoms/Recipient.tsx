@@ -3,20 +3,21 @@ import { Avatar, Box, Typography, MenuItem, Select, SelectChangeEvent } from '@m
 import { IRecipient } from '../interfaces/IRecipient.ts'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import { Roles } from '../interfaces/IRole.ts'
+import { useRecipients } from '../hooks/useRecipients.ts'
 
+let hasAdmin = false
 
-let hasOwner = false
-
-const Recipient: React.FC<IRecipient> = ({ name, email, avatar, role }) => {
-  const [selectedRole, setSelectedRole] = useState<Roles>(role)
+const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
+  const { updateRole } = useRecipients()
+  const [selectedRole, setSelectedRole] = useState<Roles>(role as Roles)
 
   useEffect(() => {
     if (selectedRole === Roles.Admin) {
-      hasOwner = true
+      hasAdmin = true
     }
     return () => {
       if (selectedRole === Roles.Admin) {
-        hasOwner = false
+        hasAdmin = false
       }
     }
   }, [selectedRole])
@@ -24,16 +25,19 @@ const Recipient: React.FC<IRecipient> = ({ name, email, avatar, role }) => {
   const handleRoleChange = (event: SelectChangeEvent) => {
     const newRole = event.target.value as Roles
 
-    if (newRole === Roles.Admin && hasOwner) {
-      alert('Only one owner is allowed.')
+    if (newRole === Roles.Admin && hasAdmin) {
+      alert('Only one admin is allowed.')
       return
     }
 
     if (selectedRole === Roles.Admin) {
-      hasOwner = false
+      hasAdmin = false
     }
 
     setSelectedRole(newRole)
+    if (id) {
+      updateRole(id, newRole)
+    }
   }
 
   return (
@@ -55,7 +59,7 @@ const Recipient: React.FC<IRecipient> = ({ name, email, avatar, role }) => {
         IconComponent={KeyboardArrowDownOutlinedIcon}
       >
         {Object.values(Roles).map((role) => (
-          <MenuItem key={role} value={role} disabled={role === Roles.Admin && hasOwner}>
+          <MenuItem key={role} value={role} disabled={role === Roles.Admin && hasAdmin}>
             {role}
           </MenuItem>
         ))}

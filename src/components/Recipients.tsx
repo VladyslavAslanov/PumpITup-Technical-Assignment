@@ -1,17 +1,15 @@
 import { Box, Typography } from '@mui/material'
-import { useState } from 'react'
-import { mocks } from '../mocks.tsx'
 import Recipient from '../atoms/Recipient.tsx'
-import { IRecipient } from '../interfaces/IRecipient.ts'
+import { useRecipients } from '../hooks/useRecipients.ts'
 
 const Recipients = () => {
-  const [recipients] = useState<IRecipient[]>(mocks.recipients)
+  const { recipients } = useRecipients()
 
   return (
     <Box className="flex flex-col gap-4">
       <Typography className="font-semibold text-gray-700">Recipients</Typography>
 
-      <Box className="flex flex-col gap-4 overflow-y-auto" sx={{ maxHeight: '320px', scrollbarWidth: 'thin' }}>
+      <Box className="flex flex-col gap-4 overflow-y-auto" sx={{ maxHeight: '300px', scrollbarWidth: 'thin' }}>
         {recipients.length > 0 ? (
           recipients.map((recipient) => <Recipient {...recipient} key={recipient.id} />)
         ) : (
