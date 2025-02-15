@@ -7,8 +7,8 @@ const Recipients: React.FC = React.memo(() => {
   const { recipients } = useRecipients()
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <Typography variant="h6" sx={{ fontWeight: 600, color: 'gray.700' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Typography variant="h6">
         Recipients
       </Typography>
 
@@ -28,7 +28,7 @@ const Recipients: React.FC = React.memo(() => {
         {recipients.length > 0 ? (
           recipients.map((recipient) => <Recipient {...recipient} key={recipient.id} />)
         ) : (
-          <Typography sx={{ textAlign: 'center', color: 'gray.500', fontStyle: 'italic' }}>
+          <Typography sx={{ textAlign: 'center', fontStyle: 'italic' }}>
             No recipients found
           </Typography>
         )}

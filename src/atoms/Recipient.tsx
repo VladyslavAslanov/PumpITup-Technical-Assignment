@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Avatar, Box, Typography, MenuItem, Select, SelectChangeEvent } from '@mui/material'
+import {
+  Avatar,
+  Box,
+  Typography,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material'
 import { IRecipient } from '../interfaces/IRecipient.ts'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import { Roles } from '../interfaces/IRole.ts'
@@ -33,12 +40,19 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
   }
 
   return (
-    <Box className="flex justify-between items-center gap-4">
-      <Box className="flex items-center gap-2">
-        <Avatar src={avatar} alt={name} />
-        <Box className="flex flex-col">
-          <Typography className="font-medium">{name}</Typography>
-          <Typography className="text-sm text-gray-500">{email}</Typography>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 2,
+      }}
+    >
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Avatar src={avatar} alt={name} sx={{ width: 48, height: 48 }} />
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography sx={{ fontWeight: 'bold' }}>{name}</Typography>
+          <Typography sx={{ fontSize: '12px', color: 'gray' }}>{email}</Typography>
         </Box>
       </Box>
 
@@ -47,11 +61,15 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
         onChange={handleRoleChange}
         variant="outlined"
         displayEmpty
-        className="w-36"
+        sx={{ width: 140 }}
         IconComponent={KeyboardArrowDownOutlinedIcon}
       >
         {Object.values(Roles).map((roleOption) => (
-          <MenuItem key={roleOption} value={roleOption} disabled={roleOption === Roles.Admin && adminExists}>
+          <MenuItem
+            key={roleOption}
+            value={roleOption}
+            disabled={roleOption === Roles.Admin && adminExists}
+          >
             {roleOption}
           </MenuItem>
         ))}
