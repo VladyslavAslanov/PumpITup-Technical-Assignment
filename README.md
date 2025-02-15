@@ -8,11 +8,17 @@ This project is a **React + Material UI** based application that allows users to
 recipient
 roles**, and **set privacy settings** efficiently. It follows best practices for:
 
-- **Lazy-loading components** for performance
-- **Optimizing for mobile responsiveness**
-- **Form validation using React Final Form**
-- **Role-based access control**
-- **Enhancing UX/UI interactions** with real-time updates
+- Lazy-loading components for performance
+- Optimizing for mobile responsiveness
+- Form validation using React Final Form
+- Role-based access control
+- Enhancing UX/UI interactions with real-time updates
+
+You can find the initial project description here:
+
+```
+./src/assets/Assignment.pdf
+```
 
 ---
 
