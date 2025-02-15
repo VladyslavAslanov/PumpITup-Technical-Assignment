@@ -12,10 +12,10 @@ import {
 import { IRecipient } from '../interfaces/IRecipient.ts'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 import { Roles } from '../interfaces/IRole.ts'
-import { useRecipients } from '../hooks/useRecipients.ts'
+import { useRecipientsContext } from '../hooks/useRecipientsContext.ts'
 
 const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
-  const { updateRole } = useRecipients()
+  const { updateRole } = useRecipientsContext()
   const [selectedRole, setSelectedRole] = useState<Roles>(role as Roles)
   const [open, setOpen] = useState(false)
 

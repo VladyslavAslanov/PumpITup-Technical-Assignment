@@ -16,13 +16,18 @@ roles**, and **set privacy settings** efficiently. It follows best practices for
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 Follow these steps to install and run the application on your local machine:
 
 ```sh
 
 git clone https://github.com/VladyslavAslanov/PumpITup-Technical-Assignment.git
+```
+
+```sh
+
+cd ./PumpITup-Technical-Assignment
 ```
 
 ```sh
@@ -40,7 +45,7 @@ The frontend will now be running on `http://localhost:5137`
 ```
 Tech Stack:
 
-| **Technology**        | **Usage**                       |
+| Technology            | Usage                           |
 |-----------------------|---------------------------------|
 | React (TypeScript)    | Component-based architecture    |
 | Material UI (MUI)     | UI components & styling         |

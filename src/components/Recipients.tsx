@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import Recipient from '../atoms/Recipient.tsx'
-import { useRecipients } from '../hooks/useRecipients.ts'
+import { useRecipientsContext } from '../hooks/useRecipientsContext.ts'
 
-const Recipients: React.FC = React.memo(() => {
-  const { recipients } = useRecipients()
+const Recipients: React.FC = () => {
+  const { recipients } = useRecipientsContext()
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -34,6 +34,6 @@ const Recipients: React.FC = React.memo(() => {
       </Box>
     </Box>
   )
-})
+}
 
 export default Recipients

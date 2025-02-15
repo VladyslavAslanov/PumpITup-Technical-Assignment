@@ -8,7 +8,7 @@ const actionButtons: { icon: React.ReactNode; text: string }[] = [
   { icon: <InsertLinkOutlinedIcon />, text: 'Copy Links' },
 ]
 
-const Footer: React.FC = React.memo(() => {
+const Footer: React.FC = () => {
   return (
     <Box
       sx={{
@@ -33,6 +33,6 @@ const Footer: React.FC = React.memo(() => {
       </Button>
     </Box>
   )
-})
+}
 
 export default Footer
