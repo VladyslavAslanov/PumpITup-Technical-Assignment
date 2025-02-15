@@ -8,9 +8,7 @@ const Recipients: React.FC = React.memo(() => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      <Typography variant="h6">
-        Recipients
-      </Typography>
+      <Typography>Recipients</Typography>
 
       <Box
         role="list"

@@ -51,8 +51,8 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <Avatar src={avatar} alt={name} sx={{ width: 48, height: 48 }} />
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography sx={{ fontWeight: 'bold' }}>{name}</Typography>
-          <Typography sx={{ fontSize: '12px', color: 'gray' }}>{email}</Typography>
+          <Typography>{name}</Typography>
+          <Typography sx={{ fontSize: '14px', color: 'gray', fontWeight: 300 }}>{email}</Typography>
         </Box>
       </Box>
 

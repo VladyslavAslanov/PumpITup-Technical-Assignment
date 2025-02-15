@@ -33,7 +33,7 @@ const ShareDocumentLink = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      <Typography variant="body2">Document Link</Typography>
+      <Typography variant="body2" sx={{ fontWeight: 300 }}>Document Link</Typography>
       <TextField
         fullWidth
         variant="outlined"

@@ -51,7 +51,7 @@ const SearchRecipients = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      <Typography variant="body2" sx={{ color: 'gray.600' }}>
+      <Typography variant="body2" sx={{ fontWeight: 300 }}>
         Search Recipients
       </Typography>
 

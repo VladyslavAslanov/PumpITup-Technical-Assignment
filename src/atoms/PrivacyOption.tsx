@@ -12,8 +12,8 @@ const PrivacyOption: React.FC<IPrivacyOption> = React.memo(({ icon: Icon, text, 
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-        {Icon && <Icon />}
-        <Typography>{text}</Typography>
+        {Icon && <Icon color="#A1A1A1" />}
+        <Typography sx={{ fontWeight: 300 }}>{text}</Typography>
       </Box>
 
       {action && (

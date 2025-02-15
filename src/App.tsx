@@ -4,7 +4,7 @@ import { RecipientsProvider } from './context/RecipientsContext.tsx'
 
 const lazyLoadWithDelay = <T extends ComponentType<ComponentType>>(
   importFunc: () => Promise<{ default: T }>,
-  delay: number = 0,
+  delay: number = 1500,
 ) => {
   return lazy(() =>
     new Promise<{ default: T }>((resolve) =>
@@ -29,10 +29,26 @@ const App = () => {
   return (
     <RecipientsProvider>
       <Box
-        className="flex flex-col gap-8 bg-white shadow-lg rounded-lg p-8 my-12"
-        sx={{ maxWidth: '720px' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 4,
+          backgroundColor: 'white',
+          boxShadow: 3,
+          borderRadius: 2,
+          padding: 3,
+          my: 6,
+          maxWidth: '720px',
+          mx: 'auto',
+        }}
       >
-        <Suspense fallback={<Box className="flex justify-center"><CircularProgress /></Box>}>
+        <Suspense
+          fallback={
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <CircularProgress />
+            </Box>
+          }
+        >
           {components.map(({ id, component: Component }) => {
             const LazyComponent = Component
             return <LazyComponent key={id} />
