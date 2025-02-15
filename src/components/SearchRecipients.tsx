@@ -45,12 +45,12 @@ const SearchRecipients = () => {
                       error={!!(meta.touched && meta.error)}
                     />
                     {meta.touched && meta.error && (
-                      <FormHelperText sx={{ color: 'red', margin: 0 }}>
+                      <FormHelperText sx={{ color: 'red', margin: 0, position: 'absolute', top: 60 }}>
                         {meta.error}
                       </FormHelperText>
                     )}
                     {successMessage && (
-                      <FormHelperText sx={{ color: 'green', margin: 0 }}>
+                      <FormHelperText sx={{ color: 'green', margin: 0, position: 'absolute', top: 60 }}>
                         {successMessage}
                       </FormHelperText>
                     )}
