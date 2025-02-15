@@ -10,13 +10,13 @@ import {
 } from '@mui/material'
 
 enum PermissionOptions {
-  CanView = 'Can View',
-  CanEdit = 'Can Edit',
+  Viewer = 'Viewer',
+  Editor = 'Editor',
 }
 
 const SearchRecipients = () => {
   const emailRef = useRef<HTMLInputElement>(null)
-  const [permission, setPermission] = useState<PermissionOptions>(PermissionOptions.CanView)
+  const [permission, setPermission] = useState<PermissionOptions>(PermissionOptions.Viewer)
   const [emailError, setEmailError] = useState<string>('')
   const [successMessage, setSuccessMessage] = useState<string>('')
 
@@ -76,7 +76,7 @@ const SearchRecipients = () => {
           variant="outlined"
           value={permission}
           onChange={(e) => setPermission(e.target.value as PermissionOptions)}
-          sx={{ width: 200 }}
+          sx={{ width: 220 }}
         >
           {Object.values(PermissionOptions).map((option) => (
             <MenuItem key={option} value={option}>

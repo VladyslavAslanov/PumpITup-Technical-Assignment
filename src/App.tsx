@@ -37,18 +37,29 @@ const App = () => {
           boxShadow: 3,
           borderRadius: 2,
           padding: { xs: 2, sm: 3 },
-          m: 4,
+          mx: 4,
+          my: 4,
           width: '100%',
           maxWidth: { xs: '95%', sm: '720px' },
+          minHeight: '100vh',
         }}
       >
         <Suspense
           fallback={
-            <Box sx={{ display: 'flex', justifyContent: 'center', padding: 3 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                width: '100%',
+              }}
+            >
               <CircularProgress />
             </Box>
           }
         >
+
           {components.map(({ id, component: Component }) => {
             const LazyComponent = Component
             return <LazyComponent key={id} />

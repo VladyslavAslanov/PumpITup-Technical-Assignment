@@ -63,7 +63,7 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
               whiteSpace: 'nowrap',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
-              maxWidth: isMobile ? '160px' : '100%',
+              maxWidth: isMobile ? '140px' : '100%',
             }}
           >
             {name}
@@ -76,7 +76,7 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
               whiteSpace: 'nowrap',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
-              maxWidth: isMobile ? '160px' : '100%',
+              maxWidth: isMobile ? '140px' : '100%',
             }}
           >
             {email}
