@@ -85,7 +85,8 @@ const SearchRecipients = () => {
           ))}
         </TextField>
 
-        <Button variant="contained" color="primary" onClick={handleShare} sx={{ height: 55, padding: '0px 30px' }}>
+        <Button variant="contained" color="primary" onClick={handleShare}
+                sx={{ height: 55, padding: '0px 25px', textTransform: 'none' }}>
           Share
         </Button>
       </Box>

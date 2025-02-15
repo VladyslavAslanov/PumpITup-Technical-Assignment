@@ -17,13 +17,13 @@ const Footer: React.FC = React.memo(() => {
         alignItems: 'center',
       }}
     >
-      <Button variant="contained">
+      <Button variant="contained" sx={{ textTransform: 'none' }}>
         Done
       </Button>
 
       <Box sx={{ display: 'flex', gap: 2 }}>
         {actionButtons.map(({ icon, text }, index) => (
-          <Button key={index} startIcon={icon} variant="outlined">
+          <Button key={index} startIcon={icon} variant="outlined" sx={{ textTransform: 'none' }}>
             {text}
           </Button>
         ))}
