@@ -10,12 +10,18 @@ const actionButtons: { icon: React.ReactNode; text: string }[] = [
 
 const Footer: React.FC = React.memo(() => {
   return (
-    <Box className="flex justify-between items-center">
-      <Button variant="contained" sx={{ px: 6 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <Button variant="contained">
         Done
       </Button>
 
-      <Box className="flex gap-4">
+      <Box sx={{ display: 'flex', gap: 2 }}>
         {actionButtons.map(({ icon, text }, index) => (
           <Button key={index} startIcon={icon} variant="outlined">
             {text}

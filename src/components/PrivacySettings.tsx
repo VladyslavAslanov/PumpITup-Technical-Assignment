@@ -28,7 +28,7 @@ const privacyOptions: IPrivacyOption[] = [
 const PrivacySettings: React.FC = React.memo(() => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <Typography variant="h6" sx={{ fontWeight: 600, color: 'gray.700' }}>
+      <Typography variant="h6">
         Privacy Settings
       </Typography>
 
