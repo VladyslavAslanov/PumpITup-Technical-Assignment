@@ -41,7 +41,6 @@ const App = () => {
           my: 4,
           width: '100%',
           maxWidth: { xs: '95%', sm: '720px' },
-          minHeight: '100vh',
         }}
       >
         <Suspense
