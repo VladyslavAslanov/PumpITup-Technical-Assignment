@@ -9,7 +9,7 @@ import {
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
 
-const documentLink = 'https://www.setproduct.com/resources/agency/thisisthelin'
+const documentLink = 'https://react.dev/'
 
 const ShareDocumentLink = () => {
   const [copied, setCopied] = useState(false)
