@@ -17,12 +17,15 @@ import { useRecipients } from '../hooks/useRecipients.ts'
 const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
   const { updateRole } = useRecipients()
   const [selectedRole, setSelectedRole] = useState<Roles>(role as Roles)
+  const [open, setOpen] = useState(false)
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleRoleChange = (event: SelectChangeEvent) => {
     const newRole = event.target.value as Roles
+
+    if (newRole === selectedRole) return
 
     setSelectedRole(newRole)
     updateRole(id ?? '', newRole)
@@ -73,11 +76,18 @@ const Recipient: React.FC<IRecipient> = ({ id, name, email, avatar, role }) => {
         onChange={handleRoleChange}
         variant="outlined"
         displayEmpty
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
         sx={{ minWidth: 100, maxWidth: 100, width: 100 }}
         IconComponent={KeyboardArrowDownOutlinedIcon}
       >
         {Object.values(Roles).map((roleOption) => (
-          <MenuItem key={roleOption} value={roleOption}>
+          <MenuItem
+            key={roleOption}
+            value={roleOption}
+            disabled={roleOption === selectedRole}
+          >
             {roleOption}
           </MenuItem>
         ))}
