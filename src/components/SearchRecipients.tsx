@@ -50,22 +50,22 @@ const SearchRecipients = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       <Typography variant="body2" sx={{ color: 'gray.600' }}>
         Search Recipients
       </Typography>
 
-      <Box sx={{ display: 'flex', gap: 2, alignItems: 'start' }}>
+      <Box sx={{ display: 'flex', gap: 1, alignItems: 'start' }}>
         <FormControl fullWidth>
           <TextField
             fullWidth
-            placeholder="Search for names or email..."
+            placeholder="Search for name or email"
             variant="outlined"
             inputRef={emailRef}
             error={!!emailError}
           />
           {(emailError || successMessage) && (
-            <FormHelperText sx={{ color: emailError ? 'red' : 'green', mt: 1 }}>
+            <FormHelperText sx={{ color: emailError ? 'red' : 'green', margin: 0, position: 'absolute', top: 60 }}>
               {emailError || successMessage}
             </FormHelperText>
           )}
@@ -76,7 +76,7 @@ const SearchRecipients = () => {
           variant="outlined"
           value={permission}
           onChange={(e) => setPermission(e.target.value as PermissionOptions)}
-          sx={{ width: 140 }}
+          sx={{ width: 200 }}
         >
           {Object.values(PermissionOptions).map((option) => (
             <MenuItem key={option} value={option}>
@@ -85,7 +85,7 @@ const SearchRecipients = () => {
           ))}
         </TextField>
 
-        <Button variant="contained" color="primary" onClick={handleShare} sx={{ height: '100%' }}>
+        <Button variant="contained" color="primary" onClick={handleShare} sx={{ height: 55, padding: "0px 30px"  }}>
           Share
         </Button>
       </Box>

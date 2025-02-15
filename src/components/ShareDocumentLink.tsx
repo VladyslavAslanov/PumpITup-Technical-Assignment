@@ -7,6 +7,7 @@ import {
   IconButton,
 } from '@mui/material'
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
 
 const documentLink = 'https://www.setproduct.com/resources/agency/thisisthelin'
 
@@ -32,10 +33,7 @@ const ShareDocumentLink = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      <Typography variant="body2" sx={{ color: 'gray.600', fontWeight: 500 }}>
-        Document Link
-      </Typography>
-
+      <Typography variant="body2">Document Link</Typography>
       <TextField
         fullWidth
         variant="outlined"
@@ -45,19 +43,17 @@ const ShareDocumentLink = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={handleCopy} edge="end">
-                  <ContentCopyOutlinedIcon className="cursor-pointer text-gray-500" />
+                  {copied ? (
+                    <CheckOutlinedIcon sx={{ color: 'gray.500' }} />
+                  ) : (
+                    <ContentCopyOutlinedIcon sx={{ color: 'gray.500' }} />
+                  )}
                 </IconButton>
               </InputAdornment>
             ),
           },
         }}
       />
-
-      {copied && (
-        <Typography sx={{ color: 'green', fontSize: '0.875rem' }}>
-          Link copied!
-        </Typography>
-      )}
     </Box>
   )
 }
