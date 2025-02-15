@@ -12,6 +12,7 @@ import {
 enum PermissionOptions {
   Viewer = 'Viewer',
   Editor = 'Editor',
+  Admin = 'Admin',
 }
 
 const SearchRecipients = () => {
