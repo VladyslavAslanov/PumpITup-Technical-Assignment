@@ -33,11 +33,22 @@ const ShareDocumentLink = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-      <Typography variant="body2" sx={{ fontWeight: 300 }}>Document Link</Typography>
+      <Typography variant="body2" sx={{ fontWeight: 300 }}>
+        Document Link
+      </Typography>
       <TextField
         fullWidth
         variant="outlined"
         value={documentLink}
+        inputProps={{
+          style: {
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            width: '100%',
+            cursor: 'pointer',
+          },
+        }}
         slotProps={{
           input: {
             endAdornment: (

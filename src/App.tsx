@@ -32,19 +32,19 @@ const App = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 4,
+          gap: { xs: 2, sm: 4 },
           backgroundColor: 'white',
           boxShadow: 3,
           borderRadius: 2,
-          padding: 3,
-          my: 6,
-          maxWidth: '720px',
-          mx: 'auto',
+          padding: { xs: 2, sm: 3 },
+          m: 4,
+          width: '100%',
+          maxWidth: { xs: '95%', sm: '720px' },
         }}
       >
         <Suspense
           fallback={
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', padding: 3 }}>
               <CircularProgress />
             </Box>
           }

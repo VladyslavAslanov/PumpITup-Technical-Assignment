@@ -17,6 +17,7 @@ const Recipients: React.FC = React.memo(() => {
           flexDirection: 'column',
           gap: 2,
           overflowY: 'auto',
+          overflowX: 'hidden',
           maxHeight: 300,
           scrollbarWidth: 'thin',
           '&::-webkit-scrollbar': { width: 4 },

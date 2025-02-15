@@ -29,7 +29,7 @@ const PrivacySettings: React.FC = React.memo(() => {
   ]
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       <Typography>Privacy Settings</Typography>
 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

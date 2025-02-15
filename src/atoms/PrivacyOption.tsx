@@ -9,6 +9,8 @@ const PrivacyOption: React.FC<IPrivacyOption> = React.memo(({ icon: Icon, text, 
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: 1,
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

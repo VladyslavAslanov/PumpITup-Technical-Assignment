@@ -15,19 +15,22 @@ const Footer: React.FC = React.memo(() => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: 2,
       }}
     >
-      <Button variant="contained" sx={{ textTransform: 'none' }}>
-        Done
-      </Button>
 
-      <Box sx={{ display: 'flex', gap: 2 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
         {actionButtons.map(({ icon, text }, index) => (
           <Button key={index} startIcon={icon} variant="outlined" sx={{ textTransform: 'none' }}>
             {text}
           </Button>
         ))}
       </Box>
+
+      <Button variant="contained" sx={{ textTransform: 'none' }}>
+        Done
+      </Button>
     </Box>
   )
 })
